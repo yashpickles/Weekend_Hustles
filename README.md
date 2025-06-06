@@ -18,7 +18,7 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 
 ```
 .
-└──APKA
+└──APKA/
     ├── .env.example
     ├── main.py
     ├── requirements.txt
