@@ -28,7 +28,7 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
         └── math_solver.py
 ```
 
--**APKA folder**: This is the main folder where the supposed magic happens, as claimed by Ryan Gos... NOT me.
+-**APKA/**: This is the main directory where the supposed "magic" happens, as claimed by Ryan Gos... NOT me.
 -  **main.py**: The core application file, where all the AI agent's "magic" happens. Think of it as the control center for your digital minion.
 - **requirements.txt**: The definitive list of Python packages you'll need. If it's not on this list, it's probably not important (or I haven't gotten around to adding it yet).
 - **.env.example**: A template for setting up environment variables. Because exposing your super-secret tokens is so last season.
@@ -42,7 +42,7 @@ Follow these incredibly complex steps to set up and run the project locally. Don
 
 - Python 3.8+ (Because older Pythons are so... basic.)
 - pip (Python package installer). If you don't have this, frankly, I'm not sure how you even found this repository.
-- CUDA Toolkit. A toolkit for the OGs (optional though!), trust me it runs faster like Usain Bolt in Olympics Final.  
+- CUDA Toolkit. A toolkit for the OGs (optional though!), trust me the code runs like Usain Bolt in Olympics Final.  
 
 ### Installation
 
