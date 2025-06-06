@@ -18,16 +18,18 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 
 ```
 .
-├── .env.example
-├── main.py
-├── requirements.txt
-└── tools/
-    ├── __init__.py
-    ├── duckduckgo_searcher.py
-    └── math_solver.py
+└──APKA
+    ├── .env.example
+    ├── main.py
+    ├── requirements.txt
+    └── tools/
+        ├── __init__.py
+        ├── duckduckgo_searcher.py
+        └── math_solver.py
 ```
 
-- **main.py**: The core application file, where all the AI agent's "magic" happens. Think of it as the control center for your digital minion.
+-**APKA folder**: This is the main folder where the supposed magic happens, as claimed by Ryan Gos... NOT me.
+-  **main.py**: The core application file, where all the AI agent's "magic" happens. Think of it as the control center for your digital minion.
 - **requirements.txt**: The definitive list of Python packages you'll need. If it's not on this list, it's probably not important (or I haven't gotten around to adding it yet).
 - **.env.example**: A template for setting up environment variables. Because exposing your super-secret tokens is so last season.
 - **tools/**: A directory containing individual scripts for different functionalities. This is where the AI's "brains" are divided into bite-sized, manageable pieces, so it doesn't get overwhelmed (unlike some of us on a Monday morning).
