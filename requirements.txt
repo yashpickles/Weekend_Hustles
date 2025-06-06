@@ -1,0 +1,16 @@
+langchain
+wikipedia
+langchain-community
+langchain-openai
+langchain-anthropic
+python-dotenv
+pydantic
+numpy
+pandas
+scipy
+huggingface-hub
+pywikibot
+transformers
+duckduckgo-search
+sympy
+scikit-learn
