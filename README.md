@@ -4,15 +4,15 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 
 ## Features
 
-- **Wikipedia Integration**: Why bother clicking through endless Wikipedia links when our AI can extract and summarize content for you? It's like having a very enthusiastic, slightly over-caffeinated research assistant, but without the awkward small talk.
+- **Wikipedia Integration**: Why bother clicking through endless Wikipedia links when this AI can extract and summarize content for you? It's like having a very enthusiastic, slightly over-caffeinated research assistant, but without the awkward small talk.
 
 - **Web Search Capability**: Utilizes DuckDuckGo for general web searches. Because sometimes, even Wikipedia isn't quick enough to satisfy your insatiable thirst for immediate, mildly reliable information.
 
 - **Mathematical Solver**: Employs SymPy to solve mathematical expressions and equations. Finally, a use for all those complex math problems you promised yourself you'd revisit "someday." That someday is today, and the AI is doing all the heavy lifting. You're welcome.
 
-- **Hugging Face LLM**: Integrates a Hugging Face LLM (specifically, the MBZUAI/LaMini-Flan-T5-783M). It's a fancy way of saying we've trained a digital brain to churn out answers, so you don't have to strain your own.
+- **Hugging Face LLM**: Integrates a Hugging Face LLM (specifically, the MBZUAI/LaMini-Flan-T5-783M). It's a fancy way of saying I've trained a digital brain to churn out answers, so you don't have to strain your own.
 
-- **Modular and Extensible**: Designed for easy addition of new tools and functionalities. Because, let's be honest, we're all still figuring out what this AI can really do. Expect more shenanigans in the future!
+- **Modular and Extensible**: Designed for easy addition of new tools and functionalities. Because, let's be honest, I'm all still figuring out what this AI can really do. Expect more shenanigans in the future!
 
 ## Project Structure
 
@@ -28,18 +28,19 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 ```
 
 - **main.py**: The core application file, where all the AI agent's "magic" happens. Think of it as the control center for your digital minion.
-- **requirements.txt**: The definitive list of Python packages you'll need. If it's not on this list, it's probably not important (or we haven't gotten around to adding it yet).
+- **requirements.txt**: The definitive list of Python packages you'll need. If it's not on this list, it's probably not important (or I haven't gotten around to adding it yet).
 - **.env.example**: A template for setting up environment variables. Because exposing your super-secret tokens is so last season.
 - **tools/**: A directory containing individual scripts for different functionalities. This is where the AI's "brains" are divided into bite-sized, manageable pieces, so it doesn't get overwhelmed (unlike some of us on a Monday morning).
 
 ## Getting Started
 
-Follow these incredibly complex steps to set up and run the project locally. Don't worry, we've dumbed it down for you.
+Follow these incredibly complex steps to set up and run the project locally. Don't worry, I'm here to help ;).
 
 ### Prerequisites
 
 - Python 3.8+ (Because older Pythons are so... basic.)
-- pip (Python package installer). If you don't have this, frankly, we're not sure how you even found this repository.
+- pip (Python package installer). If you don't have this, frankly, I'm not sure how you even found this repository.
+- CUDA Toolkit. A toolkit for the OGs (optional though!), trust me it runs faster like Usain Bolt in Olympics Final.  
 
 ### Installation
 
@@ -50,7 +51,7 @@ Follow these incredibly complex steps to set up and run the project locally. Don
    cd your-repo-name
    ```
    
-   Yes, we know, groundbreaking stuff.
+   Yes, I know, groundbreaking stuff.
 
 2. **Create a virtual environment** (highly recommended, unless you enjoy dependency hell):
 
@@ -73,12 +74,12 @@ Follow these incredibly complex steps to set up and run the project locally. Don
 
 ### Hugging Face Access Token
 
-This project uses a Hugging Face model. Because we're not just pulling answers out of thin air, we're pulling them from highly sophisticated, pre-trained models. You'll need a Hugging Face access token, unless you enjoy error messages.
+This project uses a Hugging Face model. Because I'm not just pulling answers out of thin air, I'm pulling them from highly sophisticated, pre-trained models. You'll need a Hugging Face access token, unless you enjoy error messages.
 
 1. **Obtain a Hugging Face Token:**
    - Go to [Hugging Face](https://huggingface.co/)
    - Sign in or create an account. (Yes, even AI assistants have gatekeepers.)
-   - Navigate to "Settings" -> "Access Tokens" and generate a new token with "read" access. Because our AI is a reader, not a writer... yet.
+   - Navigate to "Settings" -> "Access Tokens" and generate a new token with "read" access. Because this AI is a reader, not a writer... yet.
 
 2. **Set up Environment Variable:**
    
@@ -110,7 +111,7 @@ Here are some examples of queries you can ask the AI agent. Prepare to be amazed
 
 ## Technical Details
 
-The core of the project resides in `main.py`, which, in a nutshell, initializes a MBZUAI/LaMini-Flan-T5-783M model from Hugging Face for text generation. Think of it as giving our AI a tiny, pre-trained brain. The `AiAgent` class is the ringleader of this digital circus, orchestrating the query processing with a flair for the dramatic:
+The core of the project resides in `main.py`, which, in a nutshell, initializes a MBZUAI/LaMini-Flan-T5-783M model from Hugging Face for text generation. Think of it as giving this AI a tiny, pre-trained brain. The `AiAgent` class is the ringleader of this digital circus, orchestrating the query processing with a flair for the dramatic:
 
 - It first attempts to identify the nature of your query (Is it math? Is it web search? Or are you just lonely and want someone to talk to?).
 - For mathematical queries, it dispatches to the `solve_math_expression` function (from `tools/math_solver.py`), which, in turn, pokes SymPy with a stick until it solves the problem. It's like having a very tiny, very fast math tutor.
@@ -120,16 +121,16 @@ The core of the project resides in `main.py`, which, in a nutshell, initializes 
 
 ## Future Enhancements
 
-As a "fun weekend project," this agent is continuously evolving. We promise to add more features as soon as we finish our current Netflix binge. Planned future enhancements include:
+As a "fun weekend project," this agent is continuously evolving. I promise to add more features as soon as I finish my current Netflix binge. Planned future enhancements include:
 
-- Integration of more specialized tools for diverse domains. Because why stop at general knowledge when we can bore you with incredibly specific facts?
+- Integration of more specialized tools for diverse domains. Because why stop at general knowledge when I can bore you with incredibly specific facts?
 - Advanced natural language understanding for better query intent recognition. So it can finally understand what you really mean, even if you don't.
 - Support for conversational AI and multi-turn interactions. Get ready for some truly awkward AI-human conversations.
 - Improved error handling and user feedback. Because "Sorry, I couldn't find that" is just so unhelpful.
 
 ## Contributing
 
-Contributions are welcome! If you have suggestions for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request. We promise to read them... eventually.
+Contributions are welcome!! If you have suggestions for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request. I promise to read them... eventually.
 
 ## License
 
