@@ -6,7 +6,7 @@ import os
 from huggingface_hub import login
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from tools.duckduckgo_searcher import web_search
-from tools.math_solver import solve_math_expression
+from tools.math_solver import solve_math_expression, get_math_task
 
 
 # Load environment variables
@@ -103,9 +103,10 @@ class AiAgent:
 
 
         # Math Problem Solver
-        math_keywords = ["integrate", "differentiate", "simplify", "solve", "equation", "derivative", "sin", "cos", "tan", "algebra", "linear equation", "summation", "add", "subtract", "divide", "multiply"]
+        math_keywords = ["integrate", "differentiate", "simplify", "solve", "equation", "derivative", "derivate", "unscramble"]
         if any(m_word in topic for m_word in math_keywords):
-            math_result = solve_math_expression(input_data.question)
+            task = get_math_task((input_data.question))
+            math_result = solve_math_expression(input_data.question, task=task)
             return{
                 "topic": input_data.question,
                 "summary": math_result,
