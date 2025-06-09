@@ -5,8 +5,11 @@ import wikipedia
 import os
 from huggingface_hub import login
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+
+# Important tools
 from tools.duckduckgo_searcher import web_search
 from tools.math_solver import solve_math_expression, get_math_task
+from tools.weather_checker import get_weather
 
 
 # Load environment variables
@@ -125,6 +128,19 @@ class AiAgent:
                 "sources": web_results,
                 "tools_used": ["duckduckgo"]
             }
+        
+        # weather answer generator (patch == v1.6)
+        weather_keywords = ["weather", "heat", "forecast", "cold", "hot", "temperature", "temp", "humidity", "wind", "climate", "rain"]
+        if any(wt_word in topic for wt_word in weather_keywords):
+            city = topic.replace("weather", "").replace("forecast", "").strip()
+            forecast = get_weather(city)
+            return{
+                "topic": input_data.question,
+                "summary": forecast,
+                "sources": ['OpenWeatherMap'],
+                "tool_used": ["weather"]
+            }
+
 
         # wikipedia answer generator
         page_title, context = self.wiki_context(topic, input_data.max_chars)
