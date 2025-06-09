@@ -9,7 +9,9 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 - **Web Search Capability**: Utilizes DuckDuckGo for general web searches. Because sometimes, even Wikipedia isn't quick enough to satisfy your insatiable thirst for immediate, mildly reliable information.
 
 - **Mathematical Solver**: Employs SymPy to solve mathematical expressions and equations. Finally, a use for all those complex math problems you promised yourself you'd revisit "someday." That someday is today, and the AI is doing all the heavy lifting. You're welcome.
-
+  
+- **Weather Information (New! Patch v1.6)**: Get real-time weather details like temperature, humidity, and wind speed for any city in India using OpenWeatherAPI. Just ask "Weather in Bangalore" or "Weather in Mumbai." Now you can accurately predict if you need an umbrella, or just more coffee.
+  
 - **Hugging Face LLM**: Integrates a Hugging Face LLM (specifically, the MBZUAI/LaMini-Flan-T5-783M). It's a fancy way of saying I've trained a digital brain to churn out answers, so you don't have to strain your own.
 
 - **Modular and Extensible**: Designed for easy addition of new tools and functionalities. Because, let's be honest, I'm all still figuring out what this AI can really do. Expect more shenanigans in the future!
