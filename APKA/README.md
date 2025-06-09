@@ -27,7 +27,8 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
     └── tools/
         ├── __init__.py
         ├── duckduckgo_searcher.py
-        └── math_solver.py
+        ├── math_solver.py
+        └── weather_checker.py
 ```
 
 -**APKA/**: This is the main directory where the supposed "magic" happens, as claimed by Ryan Gos... NOT me.
