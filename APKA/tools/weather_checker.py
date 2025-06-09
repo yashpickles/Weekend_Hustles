@@ -2,6 +2,7 @@ import requests
 import os
 import json  
 
+# (patch == v1.6)
 def get_weather(city: str) -> str:
     api_key = os.getenv("WEATHER_API_KEY")
     base_url = "https://api.openweathermap.org/data/2.5/weather"
