@@ -83,15 +83,23 @@ This project uses a Hugging Face model. Because I'm not just pulling answers out
    - Sign in or create an account. (Yes, even AI assistants have gatekeepers.)
    - Navigate to "Settings" -> "Access Tokens" and generate a new token with "read" access. Because this AI is a reader, not a writer... yet.
 
-2. **Set up Environment Variable:**
-   
-   Create a `.env` file in the root directory of your project (same level as `main.py`) and add your Hugging Face token:
+2.  **OpenWeatherMap API Key:**
+    For the new weather functionality, you'll need an API key from OpenWeatherMap.
 
-   ```ini
-   HUGGINGFACE_TOKEN_KEY="YOUR_ACTUAL_HUGGING_FACE_TOKEN"
-   ```
-   
-   **Note:** Replace "YOUR_ACTUAL_HUGGING_FACE_TOKEN" with the token you obtained from Hugging Face. Don't worry, we won't judge your token for being long and random.
+    * Go to [OpenWeatherMap](https://openweathermap.org/api)
+    * Sign up for a free account.
+    * Generate an API key.
+
+3.  **Set up Environment Variables:**
+
+    Create a `.env` file in the root directory of your project (same level as `main.py`) and add your Hugging Face and OpenWeatherMap tokens:
+
+    ```ini
+    HUGGINGFACE_TOKEN_KEY="YOUR_ACTUAL_HUGGING_FACE_TOKEN"
+    OPENWEATHER_API_KEY="YOUR_OPENWEATHER_API_KEY"
+    ```
+
+    **Note:** Replace `"YOUR_ACTUAL_HUGGING_FACE_TOKEN"` and `"YOUR_OPENWEATHER_API_KEY"` with your respective tokens. Don't worry, we won't judge your tokens for being long and random.
 
 ## Running the Application
 
@@ -108,17 +116,19 @@ The application will then gracefully prompt you to "Ask me Anything:". Feel free
 Here are some examples of queries you can ask the AI agent. Prepare to be amazed (or mildly amused):
 
 - **Wikipedia Query**: "Tell me about the history of artificial intelligence." (Because clearly, you're not going to read the actual Wikipedia page.)
-- **Mathematical Query**: "What is the derivative of x^2 + 2x?" (Don't worry, the AI won't ask you to show your work.)
+- **Mathematical Query**: "Derivative x^2 + 2x?" (Don't worry, the AI won't ask you to show your work.)
 - **Web Search Query**: "What is the latest news on climate change?" (Because who has time for actual news sites when you have an AI to do the skimming?)
+- **Weather Query**: "Weather in Bangalore" or "Weather in Mumbai" (Finally, an AI that can tell you if you need an umbrella before you step out.)
 
 ## Technical Details
 
 The core of the project resides in `main.py`, which, in a nutshell, initializes a MBZUAI/LaMini-Flan-T5-783M model from Hugging Face for text generation. Think of it as giving this AI a tiny, pre-trained brain. The `AiAgent` class is the ringleader of this digital circus, orchestrating the query processing with a flair for the dramatic:
 
-- It first attempts to identify the nature of your query (Is it math? Is it web search? Or are you just lonely and want someone to talk to?).
+- It first attempts to identify the nature of your query (Is it weather? Is it math? Is it web search? Or are you just lonely and want someone to talk to?).
 - For mathematical queries, it dispatches to the `solve_math_expression` function (from `tools/math_solver.py`), which, in turn, pokes SymPy with a stick until it solves the problem. It's like having a very tiny, very fast math tutor.
 - For web search queries, it uses `web_search` (from `tools/duckduckgo_searcher.py`) to fetch relevant information. Because sometimes, even Wikipedia is too slow for your immediate gratification needs.
 - For general knowledge questions (a.k.a., "Wikipedia, please do my homework"), it bravely interacts with the Wikipedia API to extract summaries. It even includes fancy logic for handling "disambiguation" and "page errors," because sometimes Wikipedia is just as confused as you are.
+- For weather queries, it will call upon the new weather_tool.py to fetch temperature, humidity, and wind speed using the OpenWeatherAPI. So you can finally stop guessing.
 - Finally, the extracted context is fed into the Hugging Face pipeline to generate a concise (or sometimes hilariously brief) summary as a response.
 
 ## Future Enhancements
