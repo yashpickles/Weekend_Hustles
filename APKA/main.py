@@ -11,6 +11,9 @@ from tools.duckduckgo_searcher import web_search
 from tools.math_solver import solve_math_expression, get_math_task
 from tools.weather_checker import get_weather
 
+# Memory Manager (patch == v1.7)
+from memory.store_memory import MemoryManager
+
 
 # Load environment variables
 load_dotenv()
@@ -77,7 +80,7 @@ class AiAgent:
     def reseach_response(self, question: str, context:str, topic: str, source_url: str)  -> dict:
         prompt = (
                 f"Context:\n{context}\n\n"
-                f"Answer the question clearly and factually.\n"
+                f"Answer the question clearly and factually. The Answer should be coherent, intelligent and in detail of about 3-4 sentences. \n"
                 f"Question: {question}\n"
                 f"Answer:"
                 )
@@ -101,46 +104,65 @@ class AiAgent:
     
     # Run the AI Agent
     def run(self, input_data: QueryInput) -> dict:
+
+        # Load Memory
+        memory_manager = MemoryManager() # (patch == v1.7)
+        similar = memory_manager.search_memory(input_data.question)
+        if similar:
+            print("Found similar question in memory!")
+            print(f"Q: {similar[-1]['question']}")
+            print(f"A: {similar[-1]['answer']}")
+            return {
+            "topic": input_data.question,
+            "summary": similar[-1]['answer'],
+            "sources": ["From Memory"],
+            "tools_used": similar[-1].get("tools_used", [])
+            }
+
         raw_question = input_data.question
         topic = self.clean_topic(raw_question) # (patch == v1.2)
-
 
         # Math Problem Solver
         math_keywords = ["integrate", "differentiate", "simplify", "solve", "equation", "derivative", "derivate", "unscramble"]
         if any(m_word in topic for m_word in math_keywords):
             task = get_math_task((input_data.question))
             math_result = solve_math_expression(input_data.question, task=task)
-            return{
+            result = {
                 "topic": input_data.question,
                 "summary": math_result,
                 "sources": ["Zee Mathz Tool( Best Arnold Impression!!)"],
                 "tools_used": ["sympy"]
             }
+            memory_manager.add_intersection(input_data.question, math_result, ["sympy"])  # (patch == v1.7)
+            return result
         
         # web seach generator
         web_keywords = ["latest", "breaking", "news", "daily", "trending", "top", "who won", "today", "web", "internet"]
         if any (w_word in topic for w_word in web_keywords):
             web_results = web_search(input_data.question, max_results=5)
             summary = "\n".join(web_results)
-            return{
+            result = {
                 "topic": input_data.question,
                 "summary": summary,
                 "sources": web_results,
                 "tools_used": ["duckduckgo"]
             }
+            memory_manager.add_intersection(input_data.question, summary, ["duckduckgo"])  # (patch == v1.7)
+            return result
         
         # weather answer generator (patch == v1.6)
         weather_keywords = ["weather", "heat", "forecast", "cold", "hot", "temperature", "temp", "humidity", "wind", "climate", "rain"]
         if any(wt_word in topic for wt_word in weather_keywords):
             city = topic.replace("weather", "").replace("forecast", "").strip()
             forecast = get_weather(city)
-            return{
+            result = {
                 "topic": input_data.question,
                 "summary": forecast,
                 "sources": ['OpenWeatherMap'],
-                "tool_used": ["weather"]
+                "tools_used": ["weather"]
             }
-
+            memory_manager.add_intersection(input_data.question, forecast, ["weather"])  # (patch == v1.7)
+            return result
 
         # wikipedia answer generator
         page_title, context = self.wiki_context(topic, input_data.max_chars)
@@ -148,15 +170,19 @@ class AiAgent:
         print(f"→ Wikipedia Page Selected: {page_title}")
 
         if context.startswith("Sorry") or context.startswith("Confusing"):
-            return{
+            result = {
                 "topic": topic,
                 "summary": context,
                 "sources": [],
-                "tool_used": ["wikipedia"]
+                "tools_used": ["wikipedia"]
             }
+            memory_manager.add_intersection(input_data.question, context, ["wikipedia"])
+            return result
+        
         wiki_url = f"https://en.wikipedia.org/wiki/{page_title.replace(' ', '_')}"
-        return self.reseach_response(raw_question, context, page_title, wiki_url)
-
+        response = self.reseach_response(raw_question, context, page_title, wiki_url)
+        memory_manager.add_intersection(input_data.question, response['summary'], response['tools_used'])
+        return response
 
 # S3: Usage
 if __name__ == "__main__":
