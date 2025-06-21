@@ -147,7 +147,7 @@ As a "fun weekend project," this agent is continuously evolving. I promise to ad
 - Advanced natural language understanding for better query intent recognition. So it can finally understand what you really mean, even if you don't.
 - Support for conversational AI and multi-turn interactions. Get ready for some truly awkward AI-human conversations.
 - Improved error handling and user feedback. Because "Sorry, I couldn't find that" is just so unhelpful.
-- Integrating Human Feedback to improve outputs. Beacause you're feedback always matters, when my model goes AWOL...
+- Integrating Human Feedback to improve outputs. Because your feedback always matters, when my model goes AWOL...
 
 ## Contributing
 
