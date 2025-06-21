@@ -16,3 +16,5 @@ sympy
 scikit-learn
 requests
 json
+sentence_transformers 
+xml
