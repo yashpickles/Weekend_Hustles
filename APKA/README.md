@@ -15,6 +15,8 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
 - **Hugging Face LLM**: Integrates a Hugging Face LLM (specifically, the MBZUAI/LaMini-Flan-T5-783M). It's a fancy way of saying I've trained a digital brain to churn out answers, so you don't have to strain your own.
 
 - **Modular and Extensible**: Designed for easy addition of new tools and functionalities. Because, let's be honest, I'm all still figuring out what this AI can really do. Expect more shenanigans in the future!
+  
+- **Knowledge Memory (New Patch v1.7)**: Why remember anything when your agent can remember that for you! This is the first step in building a RAG system for long term memory (more on this later). 
 
 ## Project Structure
 
@@ -29,6 +31,9 @@ Let's face it, in this fast-paced world, who has time to actually read? Certainl
         ├── duckduckgo_searcher.py
         ├── math_solver.py
         └── weather_checker.py
+    └── memory/
+        ├── store_memory.py
+        └── memory.json
 ```
 
 -**APKA/**: This is the main directory where the supposed "magic" happens, as claimed by Ryan Gos... NOT me.
@@ -142,6 +147,7 @@ As a "fun weekend project," this agent is continuously evolving. I promise to ad
 - Advanced natural language understanding for better query intent recognition. So it can finally understand what you really mean, even if you don't.
 - Support for conversational AI and multi-turn interactions. Get ready for some truly awkward AI-human conversations.
 - Improved error handling and user feedback. Because "Sorry, I couldn't find that" is just so unhelpful.
+- Integrating Human Feedback to improve outputs. Beacause you're feedback always matters, when my model goes AWOL...
 
 ## Contributing
 
