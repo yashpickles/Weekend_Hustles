@@ -322,7 +322,7 @@ If you use this in your research/project:
   title = {AI Council PMS V1: Multi-Agent Portfolio Manager},
   author = {Your Name},
   year = {2023},
-  url = {https://github.com/yourusername/ai-council-pms}
+  url = {https://github.com/yashpickles/Weekend_Hustles/AI_Council/PMS/PMS_V1}
 }
 ```
 
@@ -330,8 +330,8 @@ If you use this in your research/project:
 
 ## Contact
 
-- GitHub Issues: [Submit Bug Reports](https://github.com/yourusername/ai-council-pms/issues)
-- Email: your.email@example.com
+- GitHub Issues: [Submit Bug Reports](https://github.com/yashpickles/Weekend_Hustles/AI_Council/PMS/PMS_V1/issues)
+- Email: yashsa1311@gmail.com
 
 ---
 
