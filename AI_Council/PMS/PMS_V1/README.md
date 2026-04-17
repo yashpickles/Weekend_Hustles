@@ -320,8 +320,8 @@ If you use this in your research/project:
 ```
 @software{ai_council_pms_v1,
   title = {AI Council PMS V1: Multi-Agent Portfolio Manager},
-  author = {Your Name},
-  year = {2023},
+  author = {Yash Shankar Acharya},
+  year = {2026},
   url = {https://github.com/yashpickles/Weekend_Hustles/AI_Council/PMS/PMS_V1}
 }
 ```
